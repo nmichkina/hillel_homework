@@ -6,6 +6,6 @@ text = input("Введіть текст ")
 text_lenth = len(text)
 
 if text_lenth<3:
-    print("кількість елементів менша за 3", text_lenth)
+    print("кількість елементів менша за 3: ", text_lenth)
 else:
     print("Це новий список: ", text.split(' '))
