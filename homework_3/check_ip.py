@@ -7,10 +7,11 @@
 
 ip = input("Введіть IP адресу ")
 splitted_address = ip.split(".")
+list_of_ints = [eval(num) for num in splitted_address]
 
-if len(ip) == 4 \
-        and all(isinstance(num, int) for num in splitted_address) \
-        and all(num>=0 and num<=255 for num in splitted_address):
+if len(list_of_ints) == 4 \
+        and all(isinstance(num, int) for num in list_of_ints)\
+        and all(0 <= num <= 255 for num in list_of_ints):
     print(ip)
 else:
     print("Неправильна IP-адреса")
