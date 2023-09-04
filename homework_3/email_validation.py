@@ -1,10 +1,10 @@
 #Написати валідатор для пошти. Користувач вводить пошту, а програма повинна перевірити, що в пошті
 # є символ '@' і '.', і якщо це так, вивести "YES", інакше "NO"
 
-symbols = ['@', '.']
+symbols = {'@', '.'}
 email = input('Введіть ваш імейл ')
 
-if set(symbols) & set(email):
-    print("YES")
+if symbols.issubset(email):
+    print("Yes")
 else:
-    print('NO')
+    print('No')
