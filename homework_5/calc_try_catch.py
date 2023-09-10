@@ -12,25 +12,34 @@
  - Використати всі блоки try, except, else, finally. В finally можна надрукувати за скільки спроб виконавлась формула
  - Результат виконання формули - float число з двома знаками після крапки
 """
+class FormulaError(Exception):
+    pass
 
-first_number = float(input("Введіть перше число: "))
-second_number = float(input("Введіть друге число: "))
+class WrongOperatorError(Exception):
+    pass
 
-print("""
-Виберіть операцію зі списку:
-1. Множення
-2. Ділення
-""")
+print('Калькулятор ділення або множенння двох чисел')
+count = 3
+while count!= 0:
+    try:
+        first_number = float(input("Введіть перше число: "))
+        second_number = float(input("Введіть друге число: "))
+        operation = int(input("Введіть операцію (* або /): "))
+        formula = first_number+' '+operation+' '+second_number
 
-operation = int(input("Введіть операцію (* або /): "))
+        if operation != '*' or '/':
+            raise WrongOperatorError('Невірний оператор. Допускається тільки множення або ділення')
+        elif len(formula) != 3:
+            raise FormulaError
+        if operation == '*':
+            print("Дорівнює: {} * {} = {}".format(first_number,second_number,first_number*second_number))
 
-if operation == '*':
-        print("Дорівнює: {} * {} = {}".format(first_number,second_number,first_number*second_number))
+        elif operation == '/':
+            try:
+                print("Дорівнює: {} / {} = {}".format(first_number,second_number,first_number/second_number))
+                if second_number == 0:
+                    except:
+                    print("На нуль ділити не можна!")
 
-elif operation == '/':
-        try:
-            print("Дорівнює: {} / {} = {}".format(first_number,second_number,first_number/second_number))
-        except:
-            print("На нуль ділити не можна!")
-else:
-        print("Невірна операція!")
+
+    count -= 1
