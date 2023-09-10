@@ -12,4 +12,4 @@ sq_list = []
 for number in str_list:
     int_list = [eval(number) for number in str_list]
 sq_list = list(map(lambda x: int(x) ** 2, str_list))
-print(dict(zip(sq_list, int_list)))
+print(dict(zip(int_list, sq_list)))
