@@ -24,22 +24,30 @@ while count!= 0:
     try:
         first_number = float(input("Введіть перше число: "))
         second_number = float(input("Введіть друге число: "))
-        operation = int(input("Введіть операцію (* або /): "))
-        formula = first_number+' '+operation+' '+second_number
+        operation = int(input("Введіть операцію (1 для множення, 2 для ділення): "))
+        formula = list[first_number,' ',operation,' ',second_number]
 
-        if operation != '*' or '/':
+        if operation != 1 or operation != 2:
             raise WrongOperatorError('Невірний оператор. Допускається тільки множення або ділення')
-        elif len(formula) != 3:
+        elif len(formula) != 5:
             raise FormulaError
-        if operation == '*':
+        if operation == 1:
             print("Дорівнює: {} * {} = {}".format(first_number,second_number,first_number*second_number))
 
-        elif operation == '/':
-            try:
-                print("Дорівнює: {} / {} = {}".format(first_number,second_number,first_number/second_number))
-                if second_number == 0:
-                    except:
-                    print("На нуль ділити не можна!")
+        elif operation == 2:
+            print("Дорівнює: {} / {} = {}".format(first_number,second_number,first_number/second_number))
+        break
 
+    except ZeroDivisionError as error:
+        print(error)
+        print("На нуль ділити не можна!")
+
+    except FormulaError as error:
+        print(error)
+        print("Введіть два числа та оператор згідно інструкції")
+
+    except WrongOperatorError as error:
+        print(error)
+        print("Невірний оператор")
 
     count -= 1
