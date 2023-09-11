@@ -20,27 +20,38 @@ class WrongOperatorError(Exception):
 
 print('Калькулятор ділення або множенння двох чисел')
 count = 3
-while count!= 0:
+while count != 0:
     try:
-        first_number = float(input("Введіть перше число: "))
-        second_number = float(input("Введіть друге число: "))
+        first_number = int(input("Введіть перше число: "))
+        second_number = int(input("Введіть друге число: "))
         operation = int(input("Введіть операцію (1 для множення, 2 для ділення): "))
-        formula = list[first_number,' ',operation,' ',second_number]
+        formula = [first_number,' ',operation,' ',second_number]
 
-        if operation != 1 or operation != 2:
-            raise WrongOperatorError('Невірний оператор. Допускається тільки множення або ділення')
-        elif len(formula) != 5:
+        if operation not in [1,2]:
+            raise WrongOperatorError
+        elif int(len(formula)) != 5:
             raise FormulaError
+        elif type(first_number) != int:
+            raise ValueError
+        elif type(second_number) != int:
+            raise ValueError
+
         if operation == 1:
-            print("Дорівнює: {} * {} = {}".format(first_number,second_number,first_number*second_number))
+            mult_result = float(first_number * second_number)
+            print("Дорівнює: {} * {} = {}".format(first_number,second_number,mult_result))
 
         elif operation == 2:
-            print("Дорівнює: {} / {} = {}".format(first_number,second_number,first_number/second_number))
+            dev_result = float(first_number / second_number)
+            print("Дорівнює: {} / {} = {}".format(first_number,second_number,dev_result))
         break
 
     except ZeroDivisionError as error:
         print(error)
         print("На нуль ділити не можна!")
+
+    except ValueError as error:
+        print(error)
+        print("Введіть ціле число")
 
     except FormulaError as error:
         print(error)
@@ -49,5 +60,8 @@ while count!= 0:
     except WrongOperatorError as error:
         print(error)
         print("Невірний оператор")
+
+    finally:
+        print("Спроба номер:", count)
 
     count -= 1
