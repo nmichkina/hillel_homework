@@ -17,9 +17,12 @@ size_of_file = [
 ]
 
 with open(os.path.join(path, file), 'w') as fp:
+    for f, s in size_of_file:
+        fp.write("{} : {}MB ".format(f, round(s / (1024 * 1024), 3)))
 
-    #this fp.write("New file created")
+print(size_of_file)
 pass
 
-for f, s in size_of_file:
-    print("{} : {}MB".format(f, round(s / (1024 * 1024), 3)))
+
+
+#os.remove(file)
