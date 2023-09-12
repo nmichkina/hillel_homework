@@ -25,11 +25,11 @@ while count != 0:
         first_number = int(input("Введіть перше число: "))
         second_number = int(input("Введіть друге число: "))
         operation = int(input("Введіть операцію (1 для множення, 2 для ділення): "))
-        formula = [first_number,' ',operation,' ',second_number]
+        formula = [first_number,operation,second_number]
 
         if operation not in [1,2]:
             raise WrongOperatorError
-        elif int(len(formula)) != 5:
+        elif int(len(formula)) != 3:
             raise FormulaError
         elif type(first_number) != int:
             raise ValueError
