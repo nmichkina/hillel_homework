@@ -3,4 +3,12 @@
 площа квадрата та діагональ квадрата. Надрукуйте їх
 """
 
-def square(x):
+
+def square(side):
+    area = side * side
+    return area
+
+
+if __name__ == '__main__':
+    side = int(input("Введіть сторону "))
+    print(square(side))
