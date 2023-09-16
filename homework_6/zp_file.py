@@ -6,10 +6,17 @@
 import csv
 
 rows = []
-with open("Salary_Data.csv", 'r') as file:
+header = []
+currency = 37
+
+with open("test_file.csv", 'r+') as file:
     csvreader = csv.reader(file)
-    header = next(csvreader)
+    rows.append(header)
     for row in csvreader:
-        rows.append(row)
-print(header)
-print(rows)
+        rows.append([int(var) * currency if var.isdigit() else var for var in row])
+
+    write = csv.writer(file)
+    write.writerow(header)
+    write.writerow(rows)
+
+
