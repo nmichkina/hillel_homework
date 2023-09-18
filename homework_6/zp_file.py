@@ -3,20 +3,17 @@
 (курс задається окремою змінною). Результат зберегти новий файл salaries_uah.csv
 """
 
+
 import csv
 
 rows = []
-header = []
 currency = 37
 
 with open("test_file.csv", 'r+') as file:
     csvreader = csv.reader(file)
-    rows.append(header)
     for row in csvreader:
         rows.append([int(var) * currency if var.isdigit() else var for var in row])
 
+with open("salaries_uah.csv", 'w+') as file:
     write = csv.writer(file)
-    write.writerow(header)
-    write.writerow(rows)
-
-
+    write.writerows(rows)
