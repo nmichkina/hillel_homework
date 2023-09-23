@@ -6,21 +6,22 @@
 
 
 def my_decorator(func):
-    def wrapper():
-        func.__name__
+    def inner(a, b):
+        print(func.__name__)
+        func(a, b)
 
-    return wrapper
+    return inner
 
 
 @my_decorator
 def sum_of_two(a, b):
-    result = a + b
-    return result
+    return a + b
 
 
-if __name__ == '__main__':
-    sum_of_two(3, 5)
+@my_decorator
+def mult_of_two(a, b):
+    return a * b
 
 
-
-
+print(sum_of_two(3, 4))
+print(mult_of_two(2, 2))
