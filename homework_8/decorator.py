@@ -6,11 +6,11 @@
 
 
 def my_decorator(func):
-    def inner(a, b):
+    def wrapper(a, b):
         print(func.__name__)
-        func(a, b)
-
-    return inner
+        result = func(a, b)
+        return result
+    return wrapper
 
 
 @my_decorator
