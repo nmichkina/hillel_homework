@@ -9,8 +9,8 @@ import time
 def my_decorator(func):
     def wrapper(a, b):
         start_time = time.time()
-        print(time.time() - start_time)
         result = func(a, b)
+        print(time.time() - start_time)
         return result
 
     return wrapper
@@ -21,4 +21,4 @@ def sum_of_two(a, b):
     return a + b
 
 
-print(sum_of_two(3, 4))
+print(sum_of_two(3458256325412, 48569325485632))

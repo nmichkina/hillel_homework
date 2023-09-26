@@ -8,12 +8,13 @@ def gen_range(range_num):
     for num in range(range_num):
         if (num % 2) == 0:
             print(pow(num, 2))
+            yield num
         else:
             pass
-        yield num
 
 
-gen = gen_range(10000000)
+
+gen = gen_range(10)
 print(next(gen))
 for i in gen:
     print(i)
