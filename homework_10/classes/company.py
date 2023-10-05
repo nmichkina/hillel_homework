@@ -1,17 +1,19 @@
-"""
-Create a class describing any company. For example, Toshiba or Apple
-"""
-
-
 class Company:
+    """
+    Class that describes the company
+    """
     company = 'Toshiba'  # attribute of class
 
-    def __init__(self, companytype: str, address: str):  # attribute of instance
-        self.companytype = companytype
+    def __init__(self, company_type: str, address: str):  # attribute of instance
+        self.company_type = company_type
         self.address = address
 
     def show(self):
-        print("Company name is: " + Company.company + " and company type is: " + self.companytype)
+        """
+        returns the class instance
+        :return: self
+        """
+        print("Company name is: " + Company.company + " and company type is: " + self.company_type)
 
 
 obj = Company("Product", "Haifa")
