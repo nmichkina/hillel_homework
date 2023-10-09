@@ -8,7 +8,7 @@ class Employee:
         self.name = name
         self.age = age
         self.salary = salary
-        self.emp_position = emp_position
+        self.__emp_position = emp_position
         self.company = Employee.company
         self._address = []
         self.bonus = None
